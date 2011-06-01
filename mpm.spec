@@ -2,8 +2,8 @@
 
 Name:       mpm
 Provides:   mandriva-package-manager
-Version:    0.1.0
-Release:    2
+Version:    0.1.1
+Release:    1
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
 License:    GPLv2
