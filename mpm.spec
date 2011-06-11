@@ -2,25 +2,25 @@
 
 Name:       mpm
 Provides:   mandriva-package-manager
-Version:    0.1.1
-Release:    1
+Version:    0.4.0
+Release:    0
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
 License:    GPLv2
 URL:        https://github.com/paulobelloni/Mandriva-Package-Manager
-Source0:    %{git_name}-%{version}.tar.xz
+Source0:    %{name}-%{version}.tar.xz
 BuildArch:  noarch
 Requires:   python-dbus
 Requires:   pyside
 Requires:   qt-components-desktop
-Requires:   mdvpkg
+Requires:   mdvpkg >= 0.6.3
 
 %description
 Mandriva Package Manager - A frontend (QML/PySide based) tool for the mdvpkg
 server. It uses DBus to communicate with the server.
 
 %prep
-%setup -q -n %{git_name}
+%setup -q
 
 %build
 
