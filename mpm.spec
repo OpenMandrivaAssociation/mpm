@@ -2,7 +2,7 @@
 
 Name:       mpm
 Provides:   mandriva-package-manager
-Version:    0.5.0
+Version:    0.5.1
 Release:    0
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
@@ -28,13 +28,17 @@ server. It uses DBus to communicate with the server.
 %build
 
 %install
+mkdir -p %{buildroot}/%{_datadir}/applications
 mkdir -p %{buildroot}/%{_datadir}/mandriva/mpm
 mkdir -p %{buildroot}/%{_bindir}/
 cp -R * %{buildroot}/%{_datadir}/mandriva/mpm
-ln -s %{_datadir}/mandriva/mpm/frontend/bin/mpm %{buildroot}/%{_bindir}/mpm
+cp frontend/bin/mpm %{buildroot}/%{_bindir}
+cp frontend/bin/mpm.desktop %{buildroot}/%{_datadir}/applications
+rm -fr %{buildroot}/%{_datadir}/mandriva/mpm/frontend/bin
 lrelease %{buildroot}/%{_datadir}/mandriva/mpm/frontend/i18n/*ts
 rm -f %{buildroot}/%{_datadir}/mandriva/mpm/frontend/i18n/*ts
 
 %files
-%{_datadir}/mandriva/mpm
 %{_bindir}/mpm
+%{_datadir}/mandriva/mpm
+%{_datadir}/applications/mpm.desktop
