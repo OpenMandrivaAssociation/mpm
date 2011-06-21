@@ -10,6 +10,7 @@ License:    GPLv2
 URL:        https://github.com/paulobelloni/Mandriva-Package-Manager
 Source0:    %{name}-%{version}.tar.xz
 Buildrequires: qt4-linguist >= 4.7.3
+Buildrequires: qt4-devel
 BuildArch:  noarch
 Requires:   python-dbus
 Requires:   pyside
