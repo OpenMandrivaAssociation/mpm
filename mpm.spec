@@ -2,7 +2,7 @@
 
 Name:       mpm
 Provides:   mandriva-package-manager
-Version:    0.8.0
+Version:    0.8.1
 Release:    1
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
