@@ -3,7 +3,7 @@
 Name:       mpm
 Provides:   mandriva-package-manager
 Version:    0.8.2
-Release:    1
+Release:    2
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
 License:    GPLv2
@@ -30,17 +30,25 @@ server. It uses DBus to communicate with the server.
 mkdir -p %{buildroot}/%{_datadir}/applications
 mkdir -p %{buildroot}/%{_datadir}/mandriva/mpm
 mkdir -p %{buildroot}/%{_bindir}/
+
 cp -R * %{buildroot}/%{_datadir}/mandriva/mpm
 cp frontend/bin/mpm %{buildroot}/%{_bindir}
 cp frontend/bin/mpm.desktop %{buildroot}/%{_datadir}/applications
 rm -fr %{buildroot}/%{_datadir}/mandriva/mpm/frontend/bin
+
 for i in $(ls -d frontend/images/icons/desktop/*); do
     DIM="${i##*/}"
-    mkdir -p %{buildroot}/%{_datadir}/icons/hicolor/$DIM/apps
-    cp $i/mpm.svg %{buildroot}/%{_datadir}/icons/hicolor/$DIM/apps/mpm.svg
+    mkdir -p %{buildroot}/%{_iconsdir}/hicolor/$DIM/apps
+    convert -background none $i/mpm.svg \
+        %{buildroot}/%{_iconsdir}/hicolor/$DIM/apps/mpm.png
 done
-cp frontend/images/icons/desktop/32x32/mpm.svg %{buildroot}/%{_datadir}/icons/mpm.svg
+cp frontend/images/icons/desktop/32x32/mpm.svg \
+       %{buildroot}/%{_iconsdir}/mpm.png
+mkdir -p %{buildroot}/%{_iconsdir}/hicolor/scalable/apps
+cp frontend/images/icons/desktop/72x72/mpm.svg \
+       %{buildroot}/%{_iconsdir}/hicolor/scalable/apps
 rm -fr %{buildroot}/%{_datadir}/mandriva/mpm/frontend/images/icons/desktop
+
 I18N_DIR=%{buildroot}/%{_datadir}/mandriva/mpm/frontend/i18n
 if [ "$(ls -A $I18N_DIR)" ]; then
     lrelease $I18N_DIR/*ts
@@ -51,14 +59,16 @@ fi
 %{_bindir}/mpm
 %{_datadir}/mandriva/mpm
 %{_datadir}/applications/mpm.desktop
-%{_datadir}/icons/hicolor/128x128/apps/mpm.svg
-%{_datadir}/icons/hicolor/16x16/apps/mpm.svg
-%{_datadir}/icons/hicolor/22x22/apps/mpm.svg
-%{_datadir}/icons/hicolor/24x24/apps/mpm.svg
-%{_datadir}/icons/hicolor/32x32/apps/mpm.svg
-%{_datadir}/icons/hicolor/48x48/apps/mpm.svg
-%{_datadir}/icons/hicolor/64x64/apps/mpm.svg
-%{_datadir}/icons/hicolor/72x72/apps/mpm.svg
-%{_datadir}/icons/mpm.svg
+%{_iconsdir}/hicolor/128x128/apps/mpm.png
+%{_iconsdir}/hicolor/16x16/apps/mpm.png
+%{_iconsdir}/hicolor/22x22/apps/mpm.png
+%{_iconsdir}/hicolor/24x24/apps/mpm.png
+%{_iconsdir}/hicolor/32x32/apps/mpm.png
+%{_iconsdir}/hicolor/48x48/apps/mpm.png
+%{_iconsdir}/hicolor/64x64/apps/mpm.png
+%{_iconsdir}/hicolor/72x72/apps/mpm.png
+%{_iconsdir}/hicolor/128x128/apps/mpm.png
+%{_iconsdir}/mpm.png
+%{_iconsdir}/hicolor/scalable/apps/mpm.svg
 
 
