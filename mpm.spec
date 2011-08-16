@@ -3,7 +3,7 @@
 Name:       mpm
 Provides:   mandriva-package-manager
 Version:    0.8.2
-Release:    2
+Release:    3
 Summary:    Mandriva Package Manager
 Group:      System/Configuration/Packaging
 License:    GPLv2
@@ -11,6 +11,7 @@ URL:        https://github.com/paulobelloni/Mandriva-Package-Manager
 Source0:    %{name}-%{version}.tar.xz
 Buildrequires: qt4-linguist >= 4.7.3
 Buildrequires: qt4-devel
+Buildrequires: imagemagick
 BuildArch:  noarch
 Requires:   python-dbus
 Requires:   pyside
