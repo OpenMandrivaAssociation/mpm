@@ -68,7 +68,6 @@ fi
 %{_iconsdir}/hicolor/48x48/apps/mpm.png
 %{_iconsdir}/hicolor/64x64/apps/mpm.png
 %{_iconsdir}/hicolor/72x72/apps/mpm.png
-%{_iconsdir}/hicolor/128x128/apps/mpm.png
 %{_iconsdir}/mpm.png
 %{_iconsdir}/hicolor/scalable/apps/mpm.svg
 
