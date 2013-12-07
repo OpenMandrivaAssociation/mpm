@@ -3,7 +3,7 @@
 Summary:	Mandriva Package Manager
 Name:		mpm
 Version:	0.8.3
-Release:	5
+Release:	6
 Group:		System/Configuration/Packaging
 License:	GPLv2
 Url:		https://github.com/paulobelloni/Mandriva-Package-Manager
